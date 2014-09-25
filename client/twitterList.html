@@ -1,0 +1,106 @@
+<head>
+	<title>Who Was There?</title>
+</head>
+
+<body>
+	
+	<div id="carousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#carousel" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel" data-slide-to="1"></li>
+			<li data-target="#carousel" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item active">
+				<div style="background:url(/back.jpg) center center; 
+				background-size:cover;" class="slider-size"></div>
+				<div class="carousel-caption">
+					<h3>Some Coffee</h3>
+					<p>Chat over some hot coffee with your friends.</p>
+				</div>
+			</div>
+			<div class="item">
+				<div style="background:url(/back4.jpg) center center; 
+				background-size:cover;" class="slider-size"></div>
+				<div class="carousel-caption">
+					<h3>Some Coffee</h3>
+					<p>Chat over some hot coffee with your friends.</p>
+				</div>
+			</div>
+			<div class="item">
+				<div style="background:url(/back3.jpg) center center; 
+				background-size:cover;" class="slider-size"></div>
+				<div class="carousel-caption">
+					<h3>Some Coffee</h3>
+					<p>Chat over some hot coffee with your friends.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+	<div class="container">
+		<div class="row main">
+			<div class="col-md-6">
+				<div class="row">
+					{{> entryfield}}
+				</div>
+				<div class="row">
+					{{> messages}}
+				</div>
+			</div>
+			<div class="col-md-6">
+				{{> content}}
+			</div>
+		</div>
+	</div>
+</body>
+
+<template name="content">	
+	<div class="well">
+		<h3>Tell everyone you visited this shiny new app!!</h3>
+		{{> loginButtons}}
+	</div>
+	<table class="table">
+		{{#each users}}
+		{{> user}}
+		{{/each}}
+	</table>
+</template>
+
+<template name="user">
+	<tr>
+		<td>
+			<a target="_blank" href="http://twitter.com/{{services.twitter.screenName}}"><img src="{{services.twitter.profile_image_url}}"/> {{profile.name}}</a>
+
+			<iframe class="pull-right" style="width: 300px; height: 20px; margin-top:13px;" src="//platform.twitter.com/widgets/follow_button.html?screen_name={{services.twitter.screenName}}" height="240" width="320" frameborder="0" scrolling="no"></iframe>
+		</td>
+	</tr> 
+</template>
+
+
+<template name="entryfield">
+	<input type="text" class="form-control input-box" id="name" placeholder="Name" /> 
+	<input type="text" class="form-control input-box" id="message" placeholder="Your Message" />
+</template>
+
+<template name="messages">
+	<div class="well">
+		<p>
+			{{#each messages}}
+			<div class="message">
+				<strong>{{name}}</strong>- {{message}}<br/>
+			</div>
+			{{/each}}
+		</p>
+	</div>
+</template>
