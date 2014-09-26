@@ -82,7 +82,7 @@
 		<td>
 			<a target="_blank" href="http://twitter.com/{{services.twitter.screenName}}"><img src="{{services.twitter.profile_image_url}}"/> {{profile.name}}</a>
 
-			<iframe class="pull-right follow-button" style="width: 300px; height: 20px; margin-top:13px;" src="//platform.twitter.com/widgets/follow_button.html?screen_name={{services.twitter.screenName}}" height="240" width="320" frameborder="0" scrolling="no"></iframe>
+			<iframe class="pull-right" style="width: 300px; height: 20px; margin-top:13px;" src="//platform.twitter.com/widgets/follow_button.html?screen_name={{services.twitter.screenName}}" height="240" width="320" frameborder="0" scrolling="no"></iframe>
 		</td>
 	</tr> 
 </template>
@@ -90,7 +90,7 @@
 
 <template name="entryfield">
 	<input type="text" class="form-control input-box" id="name" placeholder="Name" /> 
-	<input type="text" class="form-control input-box" id="message" placeholder="Your Message">
+	<input type="text" class="form-control input-box" id="message" placeholder="Your Message" />
 </template>
 
 <template name="messages">
