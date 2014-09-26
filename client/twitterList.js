@@ -30,3 +30,7 @@ Template.entryfield.events = {
       }
     }
   }
+
+  $('.carousel').carousel({
+    interval: 50000
+  })
